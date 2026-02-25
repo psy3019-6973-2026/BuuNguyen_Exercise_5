@@ -7,17 +7,39 @@
    <br /><sub><b>Remi Buu Nguyen</b></sub>
 </a>
 
-# 1. Présentation du projet initial
-
 ### Lien du projet = https://school-brainhack.github.io/project/chen_project_2025/
 
-## titre du projet initial =  Brainbeats: Classifying Music Genre with fMRI Connectivity
+## 1. Présentation du projet initial
+titre du projet initial =  Brainbeats: Classifying Music Genre with fMRI Connectivity
 
-## Description du projet
-"""
+### Description du projet
 Ce projet s'inspire de l'article de Nakai, T., Koide‑Majima, N., & Nishimoto, S. (2021). Brain and Behavior, 11(1), e01936.
 
 Les humains ont tendance à catégoriser les stimuli auditifs en classes distinctes, comme les langues, les instruments ou les genres musicaux. Le genre musical constitue ainsi une étiquette couramment utilisée pour organiser et reconnaître la musique, mais les mécanismes cérébraux qui soutiennent cette catégorisation demeurent encore partiellement compris.
 
-Ainsi, en s'insipirant du projet de Nakai et al., ce projet cherche à savoir s'il est possible de prédire le genre musical écouté en se basant uniquement sur des patterns de connectivité fonctionnelles en IRMf.
-"""
+Ainsi, eninsipirant du projet de Nakai et al., ce projet cherche à savoir s'il est possible de prédire le genre musical écouté en se basant uniquement sur des patterns de connectivité fonctionnelles en IRMf.
+
+### Description des données
+Les données utilisé pour le projet proviennent de la banque de données OpenNeuro ds003720. Cette base de données ouverte contient des données IRMf de 5 participants écoutant des extraits musicaux appartenant à 10 genres différents.
+
+Chaque sujet contient 12 runs d'entraînement et 6 runs de test. Chaque run contient environ 40 extraits musicaux de 10 secondes. 
+
+Les données ne sont pas prétraités directement dans cette banque de données, mais le sont sur Zenodo.
+
+La parcellation du cerveau à été effectué avec l'atlas Schaefer 100-ROI cortical atlas (98 usable ROIs after resampling) 
+
+! NOTE IMPORTANTE !
+Seul le sujet sub-005 à été utilisé dans le cadre de ce projet. Les autres sujets contenaient des fichiers corrompus ou non-correspondants, ce qui rompait l,alignement entre les extraits musicaux et les données IRMf
+
+### Description de la Méthode
+La tâche des participant impliquait l'écoute de plusieurs extraits musicaux de 10 genres différents tout en ayant leur activité cérébrale mesurée en IRMf. 
+Pour chaque extrait, une matrice de corrélation fut calculée
+
+### Résultats 
+
+
+
+
+
+
+

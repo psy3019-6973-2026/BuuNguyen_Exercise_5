@@ -17,7 +17,7 @@ Ce projet s'inspire de l'article de Nakai, T., Koide‑Majima, N., & Nishimoto, 
 
 Les humains ont tendance à catégoriser les stimuli auditifs en classes distinctes, comme les langues, les instruments ou les genres musicaux. Le genre musical constitue ainsi une étiquette couramment utilisée pour organiser et reconnaître la musique, mais les mécanismes cérébraux qui soutiennent cette catégorisation demeurent encore partiellement compris.
 
-Ainsi, eninsipirant du projet de Nakai et al., ce projet cherche à savoir s'il est possible de prédire le genre musical écouté en se basant uniquement sur des patterns de connectivité fonctionnelles en IRMf.
+Ainsi, en s'insipirant du projet de Nakai et al., on cherche à savoir s'il est possible de prédire le genre musical écouté en se basant uniquement sur des patterns de connectivité fonctionnelles en IRMf.
 
 ### Description des données
 Les données utilisé pour le projet proviennent de la banque de données OpenNeuro ds003720. Cette base de données ouverte contient des données IRMf de 5 participants écoutant des extraits musicaux appartenant à 10 genres différents. Les données ne sont pas prétraités directement dans cette banque de données, mais le sont sur Zenodo.
@@ -44,10 +44,40 @@ Pour chaque extrait, une matrice de corrélation a été obtenue, puis applatie 
 
 ### Résultats 
 ![image tableau resultats](images/tableau_resultats_initiaux.jfif)
+
 ![image resultats 2](images/confusion_matrix.jfif)
 
+INTERPRETATION DES RÉSULTATS
 
+## 2.  Pourquoi ce projet ?
+Tout d'abord, j'ai choisi ce projet puisqu'il me permet de combiner deux sujets qui m'intéressent, soit la musique et l'apprentissage automatique. Étant un pianiste, j'ai longtemps été intéressé à faire un projet où je pourrais mettre en oeuvre mes connaissances acquises pendant mon bacc pour explorer les liens entre la musique et le fonctionnement du cerveau.
 
+Ensuite, bien que j'aie déjà de l'expérience en programmation, je suis débutant spécifiquement en traitement de données d’IRM fonctionnelle et en apprentissage automatique appliqué à la neuroimagerie. Ce projet me permet donc de me familiariser avec des concepts essentiels, tels que l'extraction de séries temporelles cérébrales, la construction de matrices de corrélation ROI-to-ROI et l'entraînement de classificateurs, tout en développant mes compétences en analyse computationnelle de données cérébrales. D'ailleurs, mon projet Honor utilise une tâche experimental en IRMf, donc ce projet pourra certainement m'être utile pour compléter ma thèse.
+
+Finalement, le fait que les données pré-traitées soient disponibles m'a également encouragé à sélectionner ce projet. En revanche, le projet initial semble présenter assez d'opportunité d'amélioration et/ou d'apprentissage
+
+## 3. Description des tâches
+
+Voici les 3 tâches que je compte accomplir
+
+### TÂCHE 1 : Reproduction complète du notebook brainbeats_analysis_pca_confmat.ipynb (tâche partagée avec Diyaa)
+
+Les détails de comment les sous-tâches vont être divisées reste à être confirmé, mais voici certaines des sous-tâches que j'aimerais accomplir:
+
+au niveau de la lisibilité:
+- ajouter des commentaires explicatifs et réorganiser les notebook pour améliorer la visibilité
+
+au niveau des figures:
+- Améliorer la figure de matrice de confusion pour améliorer la lisibilité (changer les couleurs, mettre les chiffres importants en gras, rendre les axes plus lisibles)
+- Ajouter un diagramme à bande pour illustrer le niveau de précision pour chaque genre avec une Baseline (AJOUTER UN EXEMPLE)
+- si jamais cela ne me prends pas 6-15h = ajouter un graphique de type T-SNE pour voir comment les genres se regroupent (HUH??)
+
+pourquoi cette tâche?
+L'intérêt principal de cette tâche est d'apprendre à collaborer avec une collègue à travers Github. Cette tâche est également pertinente car elle me permet de mieux comprendre le pipeline de traitement des données d’IRM et d’apprentissage automatique, d’améliorer mes compétences en visualisation
+
+### TÂCHE 2 : Reproduction complète du notebook brainbeats_binary_classifier.ipynb (tâche partagée avec Diyaa)
+
+### TÂCHE 3 : Créer un notebook pédagogique exhaustif expliquant les concepts de classification automatique
 
 
 

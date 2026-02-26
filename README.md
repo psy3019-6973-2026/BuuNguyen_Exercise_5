@@ -81,8 +81,8 @@ Au niveau des figures:
 - Ajouter un diagramme à bande pour illustrer le niveau de précision pour chaque genre avec une Baseline (AJOUTER UN EXEMPLE)
 
 Sous-tâches supplémentaires : 
-- Ajouter un graphique de type T-SNE pour voir comment les genres se regroupent (HUH??)
-- Ajouts de graphiques diagnostiques
+- Ajouter un graphique de type T-SNE pour visualiser comment les différents genres se regroupent
+- Ajouts de graphiques diagnostiques (À DÉTERMINER)
 
 Pourquoi cette tâche?
 L'intérêt principal de cette tâche est de me permettre de développer mes connaissances sur le pipeline de traitement des données d’IRM et d’apprentissage automatique ainsi que d’améliorer mes compétences en visualisation de données. 

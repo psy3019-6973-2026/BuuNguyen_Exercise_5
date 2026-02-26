@@ -43,7 +43,8 @@ Pour chaque extrait, une matrice de corrélation a été obtenue, puis applatie 
 - 2 binary classification (SVM, KNN) pour différencier Pop et Metal
 
 ### Résultats 
-![image resultats](image.png)
+![image resultats](images/cfd05776-b6c6-4424-bd0c-5bc28a3a1228.jfifimage.png)
+
 
 
 

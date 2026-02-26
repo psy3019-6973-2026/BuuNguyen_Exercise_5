@@ -79,7 +79,7 @@ Au niveau de la lisibilité:
 
 Au niveau des figures:
 - Améliorer la figure de matrice de confusion pour améliorer la lisibilité et l'interprétation (changer les couleurs, mettre les chiffres importants en gras, rendre les axes plus lisibles)
-- Ajouter un diagramme à bande pour illustrer le niveau de précision pour chaque genre avec une Baseline (AJOUTER UN EXEMPLE)
+- Ajouter un diagramme à bande pour illustrer le niveau de précision pour chaque genre avec une Baseline
 
 Sous-tâches supplémentaires : 
 - Ajouter un graphique de type T-SNE pour visualiser comment les différents genres se regroupent

@@ -129,7 +129,10 @@ Cette tâche me permettrait de concrétiser mes apprentissages faits au long du 
 
 De plus, la création de ce notebook constituerait une ressource utile et réutilisable, autant pour moi que pour d'autres étudiants. 
 
+## RÉFÉRENCES
+Nakai, T., Koide‐Majima, N., & Nishimoto, S. (2020). Correspondence of categorical and feature‐based representations of music in the human brain. Brain and Behavior, 11(1), e01936. https://doi.org/10.1002/brb3.1936
 
+Wildgruber, D., Riecker, A., Hertrich, I., Erb, M., Grodd, W., Ethofer, T., & Ackermann, H. (2004). Identification of emotional intonation evaluated by fMRI. NeuroImage, 24(4), 1233–1241. https://doi.org/10.1016/j.neuroimage.2004.10.034
 
 
 

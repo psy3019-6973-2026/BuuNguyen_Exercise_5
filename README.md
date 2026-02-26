@@ -100,11 +100,12 @@ Voici les sous-tâches nécessaires:
 
 Sous-tâche si j'ai les capacité computationnelles:
 - Entrainer et tester le classificateur binaire sur plus d'un participant
+- Trouver et tester un autre type de classificateur binaire
+- Création d'une visualisation pour comparer les différents classificateurs utilisés
 
 Sous-tâches supplémetaires:
 - Créer un script de validation de la structure du jeu de données
-- Trouver et tester un autre type de classificateur binaire
-- Création de visualisation pour comparer les différents classificateurs utilisés
+
 
 Pourquoi cette tâche?
 J'ai très peu de connaissances en classification automatique, donc je pense que cette tâche constitue un bon défi. Présentement, seule la dernière cellule du notebook est disponible en ligne. Cela me permettrait donc de développer mon propre pipeline d'analyse. De plus, l'ajout potentiel d'un deuxième participant pourrait certainement améliorer la capacité de classification et donner de meilleurs résultats.

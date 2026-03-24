@@ -34,7 +34,7 @@ Chaque sujet a écouté 540 extraits musicaux de 10 secondes.
 
 La parcellation du cerveau à été effectué avec l'atlas Schaefer 100-ROI cortical atlas, dont 98 régions utilisables après rééchantillonnage.
 
-! NOTE IMPORTANTE !
+!NOTE IMPORTANTE!
 
 Seul le sujet sub-005 à été utilisé dans le projet initial. Les autres sujets contenaient des fichiers corrompus ou non-correspondants, ce qui rompait l'alignement entre les extraits musicaux et les données IRMf.
 

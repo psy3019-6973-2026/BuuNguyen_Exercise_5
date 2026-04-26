@@ -140,14 +140,16 @@ Au niveau des visualisations, plusieurs figures ont été produites. Étant donn
 *Diagramme en barres de l'accuracy par genre :* Montre la précision du modèle pour chacun des 10 genres, avec une ligne rouge pointillée au niveau du chance level (10%). Permet de voir rapidement quels genres sont mieux classés que d'autres.
 
 
-<img width="400" alt="" src="https://github.com/user-attachments/assets/9fbddc14-a1f7-4cf1-b53b-74c1a0be8d70" />
+<img width="500" alt="" src="https://github.com/user-attachments/assets/9fbddc14-a1f7-4cf1-b53b-74c1a0be8d70" />
 
 
 *t-SNE et UMAP :* Deux techniques de réduction de dimension ont été utilisées et comparées côte à côte pour visualiser si les genres forment des groupes distincts dans l'espace des features. Le t-SNE préserve bien la structure locale (les voisins proches restent proches), tandis que l'UMAP préserve aussi une partie de la structure globale et est généralement plus stable et rapide. L'UMAP est appliqué directement sur les 50 composantes PCA déjà extraites par le pipeline, ce qui accélère considérablement le calcul.
 
-> 📷 *Insérer ici : t-SNE avec centroïdes annotés (cellule 19)*
 
-> 📷 *Insérer ici : comparaison côte à côte t-SNE vs UMAP (cellule 21)*
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/51ae2e37-49d8-4003-9252-28b06e697ba0" />
+
+
+<img width="1790" height="691" alt="image" src="https://github.com/user-attachments/assets/99c5cf89-2963-4dae-947a-46d4c2e707e7" />
 
 *Scree plot de la PCA :* Montre la variance cumulée expliquée en fonction du nombre de composantes, avec une ligne rouge à 50 composantes pour justifier ce choix dans le pipeline.
 

@@ -71,9 +71,9 @@ Finalement, le fait que les données pré-traitées soient disponibles m'a égal
 
 ```
 BuuNguyen_Exercise_5/
-├── task_1.ipynb                  # Tâche 1 : Reproduction & amélioration du pipeline PCA/confusion
+├── task_1.ipynb                  # Tâche 1 : Reproduction & amélioration du fichier brainbeats_analysis_pca_confmat.ipynb
 ├── task_2.ipynb                  # Tâche 2 : Classificateur binaire original (Pop vs Classical)
-├── task_3/
+├── task_3/                       # Tâche 3 : Notebook pédagogique sur la classification
 │   ├── 01_theorie.ipynb          # Tâche 3 — Partie 1 : Théorie de la classification automatique
 │   └── 02_classificateurs.ipynb  # Tâche 3 — Partie 2 : Algorithmes KNN, SVM et Random Forest
 ├── images/

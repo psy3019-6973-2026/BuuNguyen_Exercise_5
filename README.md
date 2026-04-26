@@ -70,7 +70,7 @@ Ensuite, bien que j'aie déjà de l'expérience en programmation, je suis début
 
 Finalement, le fait que les données pré-traitées soient disponibles m'a également encouragé à sélectionner ce projet. En revanche, le projet initial semble présenter assez d'opportunité d'amélioration et/ou d'apprentissage
 
-## 3. Description des tâches
+## 3. Initialisation du projet
 
 ### 3.1 Structure du dépot
 
@@ -93,7 +93,6 @@ BuuNguyen_Exercise_5/
 Pour reproduire l'ensemble des notebook, il faudra initialiser l'environnement virtuel. Le téléchargement de données se fera directement à partir des notebooks.
 
 ### Initialiser l'environnement virtuel
-Tout d'abord,
 
 ```bash
 conda env create -f environment.yml
@@ -113,7 +112,47 @@ Les notebooks peuvent être exécutés dans l'ordre suivant :
 3. `task_3/01_theorie.ipynb` — Théorie (aucune donnée externe requise)
 4. `task_3/02_classificateurs.ipynb` — Algorithmes (aucune donnée externe requise)
 
-Les notebook task_1.ipynb et task_2.ipynb permettent tout les deux de télecharger les données. Ainsi, l'ordre proposé n'est pas obligatoire pour que les notebooks fonctionnent. 
+En revanche, les notebook task_1.ipynb et task_2.ipynb permettent tout les deux de télecharger les données. Ainsi, l'ordre proposé n'est pas obligatoire pour que les notebooks fonctionnent. Ils peuvent être exécutés indépendamment dans n'importe quel ordre.
+
+## 4. Description des tâches
+
+Pour voir les tâches telles que présentées à la mi-session, voir [Presentation_initiale.md](Presentation_initiale.md).  
+Pour voir les plus grandes difficultés rencontré pour les 3 tâches, voir XXXX.  
+Pour voir un journal de bord incomplet et brouillon, voir XXXX.   
+
+### 1. Tâche 1 : Reproduction et amélioration du notebook `brainbeats_analysis_pca_confmat.ipynb`
+
+**Objectif principal :** Reproduire le notebook d'analyse multiclasse du projet original et l'améliorer au niveau de la lisibilité et des figures.
+
+**Ce qui a été réalisé :**  
+
+En premier lieu, le notebook original n'était pas structuré de façon claire. Je l'ai réorganisé en 4 sections distinctes avec des commentaires explicatifs à chaque étape : chargement des données, construction des labels, pipeline d'analyse, et visualisation.
+
+Pour le pipeline d'analyse, j'ai implémenté une chaîne complète en trois étapes : standardisation (StandardScaler), réduction de dimensions par PCA à 50 composantes, puis classification par SVM linéaire (LinearSVC). 
+
+Au niveau des visualisations, plusieurs figures ont été produites. Étant donné qu'un des objectifs de la tâche était de m'améliorer dans la production de figures, j'ai décidé de produire plusieurs types de visualisations complémentaires plutôt que de me limiter à celles du projet original.
+
+**Figures produites :**
+*Matrice de confusion :* Deux versions ont été produites. La première est la version de base. La deuxième est une version améliorée où chaque case de la diagonale est encadrée en rouge pour faciliter la lecture des bonnes prédictions.
+
+<img width="623" height="553" alt="image" src="https://github.com/user-attachments/assets/2adacfaf-3ab4-40a1-8ce0-73c0e299c966" />
+
+
+*Diagramme en barres de l'accuracy par genre :* Montre la précision du modèle pour chacun des 10 genres, avec une ligne rouge pointillée au niveau du chance level (10%). Permet de voir rapidement quels genres sont mieux classés que d'autres.
+
+> 📷 *Insérer ici : diagramme en barres de l'accuracy par genre avec chance level (cellule 20)*
+
+*t-SNE et UMAP :* Deux techniques de réduction de dimension ont été utilisées et comparées côte à côte pour visualiser si les genres forment des groupes distincts dans l'espace des features. Le t-SNE préserve bien la structure locale (les voisins proches restent proches), tandis que l'UMAP préserve aussi une partie de la structure globale et est généralement plus stable et rapide. L'UMAP est appliqué directement sur les 50 composantes PCA déjà extraites par le pipeline, ce qui accélère considérablement le calcul.
+
+> 📷 *Insérer ici : t-SNE avec centroïdes annotés (cellule 19)*
+
+> 📷 *Insérer ici : comparaison côte à côte t-SNE vs UMAP (cellule 21)*
+
+*Scree plot de la PCA :* Montre la variance cumulée expliquée en fonction du nombre de composantes, avec une ligne rouge à 50 composantes pour justifier ce choix dans le pipeline.
+
+> 📷 *Insérer ici : scree plot de la PCA (cellule 24)*
+
+
 
 ---
 

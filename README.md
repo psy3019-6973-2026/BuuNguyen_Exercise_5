@@ -135,7 +135,7 @@ Au niveau des visualisations, plusieurs figures ont été produites. Étant donn
 **Figures produites :**
 *Matrice de confusion :* Deux versions ont été produites. La première est la version de base. La deuxième est une version améliorée où chaque case de la diagonale est encadrée en rouge pour faciliter la lecture des bonnes prédictions.
 
-<img src="https://github.com/user-attachments/assets/2adacfaf-3ab4-40a1-8ce0-73c0e299c966" width="100px;" alt=""/>
+<img src="https://github.com/user-attachments/assets/2adacfaf-3ab4-40a1-8ce0-73c0e299c966" width="300px;" alt=""/>
 
 *Diagramme en barres de l'accuracy par genre :* Montre la précision du modèle pour chacun des 10 genres, avec une ligne rouge pointillée au niveau du chance level (10%). Permet de voir rapidement quels genres sont mieux classés que d'autres.
 

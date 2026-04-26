@@ -5,7 +5,8 @@
 <a href="https://github.com/TON_USERNAME">
    <img src="https://avatars.githubusercontent.com/u/180669752?v=4?s=100" width="100px;" alt=""/>
    <br /><sub><b>Remi Buu Nguyen</b></sub>
-</a>
+</a>  
+
 
 **Repo du projet original :** https://github.com/AlexPeng517/BHS2023_Project_SAM_MRI *(voir lien BrainHack)*
 

@@ -14,17 +14,17 @@
 ## 1. Présentation du projet initial
 titre du projet initial =  Brainbeats: Classifying Music Genre with fMRI Connectivity
 
-### Description du projet
+### 1.1 Description du projet
 Ce projet s'inspire de l'article de Nakai, T., Koide‑Majima, N., & Nishimoto, S. (2021). Brain and Behavior, 11(1), e01936.
 
 Les humains ont tendance à catégoriser les différents stimuli auditifs en classes distinctes, comme les langues ou même les intonations émotionnelles dans la voix (Wildgruber et al., 2004). Du côté de la musique, Le genre musical constitue aussi une étiquette couramment utilisée pour organiser et reconnaître la musique. En revanche, les mécanismes cérébraux qui soutiennent cette catégorisation demeurent encore mal compris.
 
 Ainsi, en s'insipirant du projet de Nakai et al., le projet initial cherchait à savoir s'il est possible de prédire le genre musical écouté en se basant uniquement sur des patterns de connectivité fonctionnelles en IRMf.
 
-### Description des données
+### 1.2 Description des données
 Les données utilisé pour le projet proviennent de la banque de données OpenNeuro ds003720. Cette base de données ouverte contient des données IRMf de 5 participants écoutant des extraits musicaux qui appartiennent à 10 genres différents. Les données ne sont pas prétraités directement dans cette banque de données, mais une version du jeu de données avec des données pré-traité l'est sur Zenodo.
 
-Les genres musicaux:
+Les 10 genres musicaux:
 - blues, classical, country, disco, hiphop, jazz, metal, pop, reggae, rock
 
 Chaque sujet présente:
@@ -38,7 +38,7 @@ La parcellation du cerveau à été effectué avec l'atlas Schaefer 100-ROI cort
 
 Seul le sujet sub-005 à été utilisé dans le projet initial. Les autres sujets contenaient des fichiers corrompus ou non-correspondants, ce qui rompait l'alignement entre les extraits musicaux et les données IRMf.
 
-### Description de la Méthode
+### 1.3 Description de la Méthode
 La tâche des participant impliquait l'écoute de plusieurs extraits musicaux de 10 genres différents tout en ayant leur activité cérébrale mesurée en IRMf. 
 
 L'atlas utilisé à permis de segmenter le cerveau en 98 régions corticales.
@@ -49,7 +49,7 @@ Pour chaque extrait, une matrice de corrélation a été obtenue, puis applatie 
 - 1 Multiclass Random Forest pour les 10 genres
 - 2 binary classification (SVM, KNN) pour différencier Pop et Metal
 
-### Résultats 
+### 1.4 Résultats 
 ![image tableau resultats](images/tableau_resultats_initiaux.jfif)
 
 La précision du classificateur multiclasse était faible (environ 13%), mais meilleur que la chance avec 10 classes possibles (10%). Du côté des classificateur binaires, le modèle SVM a atteint une précision de 68%, tandis que le KNN a tout simplement échoué. 

@@ -128,7 +128,7 @@ Pour voir un journal de bord incomplet et brouillon, voir XXXX.
 
 En premier lieu, le notebook original n'était pas structuré de façon claire. Je l'ai réorganisé en 4 sections distinctes avec des commentaires explicatifs à chaque étape : chargement des données, construction des labels, pipeline d'analyse, et visualisation.
 
-Pour le pipeline d'analyse, j'ai implémenté une chaîne complète en trois étapes : standardisation (StandardScaler), réduction de dimensions par PCA à 50 composantes, puis classification par SVM linéaire (LinearSVC). 
+Pour le pipeline d'analyse, j'ai implémenté une chaîne complète en trois étapes : standardisation (StandardScaler), réduction de dimensions par PCA à 50 composantes, puis classification par SVM linéaire (LinearSVC). L'ajout de commentaires explicatifs était réalisé dans le but de rendre le pipeline accessible à un lecteur débutant, en expliquant le rôle de chaque étape et les choix méthodologiques qui les justifient.
 
 Au niveau des visualisations, plusieurs figures ont été produites. Étant donné qu'un des objectifs de la tâche était de m'améliorer dans la production de figures, j'ai décidé de produire plusieurs types de visualisations complémentaires plutôt que de me limiter à celles du projet original.
 
@@ -155,7 +155,32 @@ Au niveau des visualisations, plusieurs figures ont été produites. Étant donn
 
 <img width="600" alt="image" src="https://github.com/user-attachments/assets/384c1059-4a98-45a6-8eb2-234aada99e0a" />
 
+**Performance du modèle :**
 
+À titre de référence, le classificateur du projet original obtenait une performance d'environ 13% sur le même sujet. En revanche, les analyses étaient fait sur des matrices de connectivité. Dans le cadre de ce projet, le modèle SVM dans ce projet a été entraîné directement sur l'activité cérébrale brute moyennée dans le temps (voxel par voxel).  le modèle a atteint une précision de 23.5% sur les données de test.
+
+
+### 1. Tâche 2 : Reproduction et amélioration du notebook `brainbeats_analysis_pca_confmat.ipynb`
+
+**Objectif principal :** Créer de zéro un pipeline complet de classification binaire à partir des données pré-traitées de Zenodo. Dans le projet original, seule la dernière cellule du notebook était disponible en ligne.
+
+**Ce qui à été réalisé :**  
+
+J'ai développé un pipeline complet en 7 étapes documentées. Le point de départ est le téléchargement et le chargement des données depuis Zenodo, suivi du filtrage pour isoler deux genres : **Pop** (label 8) et **Classical** (label 2). J'ai choisi cette paire plutôt que Pop vs Metal (utilisée dans le projet original) pour explorer une combinaison différente.
+
+Pour l'optimisation des hyperparamètres, j'ai utilisé un **GridSearchCV** avec une validation croisée stratifiée à 5 folds (StratifiedKFold). La grille testait différentes valeurs de composantes PCA (10, 20, 50) et du paramètre de régularisation C du SVM (0.001, 0.01, 0.1, 1, 10), pour un total de 15 combinaisons. Les résultats sont visualisés sous forme de **heatmap** pour voir l'impact de chaque hyperparamètre sur la précision.
+
+J'ai ensuite comparé **3 classificateurs** avec le même protocole d'optimisation : SVM linéaire (LinearSVC), Random Forest et KNN. Pour chaque modèle, deux scores sont rapportés : le score de validation croisée sur les données d'entraînement et le score sur les données de test. Un écart important entre les deux peut indiquer de l'overfitting.
+
+Finalement, j'ai créé une **fonction de classification binaire personnalisée** (`binary_classifier`) qui permet à n'importe quel utilisateur de choisir sa propre paire de genres parmi les 10 disponibles et d'entraîner un SVM sur celle-ci, avec affichage automatique des scores et d'une matrice de confusion.
+
+**Performance des modèles :**
+
+> 📷 *Insérer ici : heatmap des scores CV en fonction des hyperparamètres PCA et C (cellule 9)*
+
+> 📷 *Insérer ici : graphique comparatif des scores CV et Test des 3 classificateurs (cellule 14)*
+
+Les scores exacts sont à insérer une fois le notebook exécuté. On s'attend à ce que le classificateur binaire performe nettement mieux que le multiclasse, puisque le problème est simplifié à seulement 2 classes (baseline à 50%). À titre de comparaison, le projet original obtenait **68%** de précision avec un SVM binaire Pop vs Metal. Le graphique comparatif permet de voir si le SVM reste le meilleur choix ou si Random Forest ou KNN font mieux sur la paire Pop vs Classical. Un bon modèle devrait avoir des scores CV et Test proches, sans écart important qui indiquerait de l'overfitting.
 
 ---
 

@@ -149,11 +149,11 @@ Au niveau des visualisations, plusieurs figures ont été produites. Étant donn
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/51ae2e37-49d8-4003-9252-28b06e697ba0" />
 
 
-<img width="1790" height="691" alt="image" src="https://github.com/user-attachments/assets/99c5cf89-2963-4dae-947a-46d4c2e707e7" />
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/99c5cf89-2963-4dae-947a-46d4c2e707e7" />
 
-*Scree plot de la PCA :* Montre la variance cumulée expliquée en fonction du nombre de composantes, avec une ligne rouge à 50 composantes pour justifier ce choix dans le pipeline.
+*Scree plot de la PCA :* Montre la variance cumulée expliquée en fonction du nombre de composantes, avec une ligne rouge à 50 composantes pour montrer où se situe le modèle entrainé
 
-> 📷 *Insérer ici : scree plot de la PCA (cellule 24)*
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/384c1059-4a98-45a6-8eb2-234aada99e0a" />
 
 
 

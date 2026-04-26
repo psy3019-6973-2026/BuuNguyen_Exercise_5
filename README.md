@@ -7,9 +7,13 @@
    <br /><sub><b>Remi Buu Nguyen</b></sub>
 </a>
 
-### Lien du projet = https://school-brainhack.github.io/project/chen_project_2025/
+**Repo du projet original :** https://github.com/AlexPeng517/BHS2023_Project_SAM_MRI *(voir lien BrainHack)*
 
-### Lien de l'article = https://pubmed.ncbi.nlm.nih.gov/33164348/ 
+**URL BrainHack :** https://school-brainhack.github.io/project/chen_project_2025/
+
+**Article de référence :** https://pubmed.ncbi.nlm.nih.gov/33164348/
+
+---
 
 ## 1. Présentation du projet initial
 titre du projet initial =  Brainbeats: Classifying Music Genre with fMRI Connectivity
@@ -85,19 +89,21 @@ BuuNguyen_Exercise_5/
 ```
 
 ### 3.2 Reproductibilité
+Pour reproduire l'ensemble des notebook, il faudra initialiser l'environnement virtuel. Le téléchargement de données se fera directement à partir des notebooks.
 
-### Environnement
+### Initialiser l'environnement virtuel
+Tout d'abord,
 
 ```bash
 conda env create -f environment.yml
 conda activate <nom_de_l_environnement>
 ```
 
-### Données
+### Les données
 
 Les données sont téléchargées automatiquement depuis Zenodo au début des notebooks de la tâche 1 et 2. Aucun téléchargement manuel n'est nécessaire. Les notebooks de la tâche 3 n'utilisent aucune donnée externe.
 
-### Exécution
+### Exécution des notebook
 
 Les notebooks peuvent être exécutés dans l'ordre suivant :
 
@@ -105,6 +111,8 @@ Les notebooks peuvent être exécutés dans l'ordre suivant :
 2. `task_2.ipynb` — Classificateur binaire
 3. `task_3/01_theorie.ipynb` — Théorie (aucune donnée externe requise)
 4. `task_3/02_classificateurs.ipynb` — Algorithmes (aucune donnée externe requise)
+
+Les notebook task_1.ipynb et task_2.ipynb permettent tout les deux de télecharger les données. Ainsi, l'ordre proposé n'est pas obligatoire pour que les notebooks fonctionnent. 
 
 ---
 

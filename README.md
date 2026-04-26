@@ -65,7 +65,26 @@ Ensuite, bien que j'aie déjà de l'expérience en programmation, je suis début
 
 Finalement, le fait que les données pré-traitées soient disponibles m'a également encouragé à sélectionner ce projet. En revanche, le projet initial semble présenter assez d'opportunité d'amélioration et/ou d'apprentissage
 
-## 3. Description des tâches
+## 3. TROUVER TITRE
+
+### 3.1 Structure du projet
+
+```
+BuuNguyen_Exercise_5/
+├── task_1.ipynb                  # Tâche 1 : Reproduction & amélioration du pipeline PCA/confusion
+├── task_2.ipynb                  # Tâche 2 : Classificateur binaire original (Pop vs Classical)
+├── task_3/
+│   ├── 01_theorie.ipynb          # Tâche 3 — Partie 1 : Théorie de la classification automatique
+│   └── 02_classificateurs.ipynb  # Tâche 3 — Partie 2 : Algorithmes KNN, SVM et Random Forest
+├── images/
+│   ├── tableau_resultats_initiaux.jfif
+│   └── confusion_matrix.jfif
+├── environment.yml
+├── LICENSE
+└── README.md
+```
+
+## 4. Description des tâches
 
 Voici les 3 tâches que je compte accomplir.
 

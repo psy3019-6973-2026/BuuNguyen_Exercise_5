@@ -133,26 +133,26 @@ Pour le pipeline d'analyse, j'ai implémenté une chaîne complète en trois ét
 Au niveau des visualisations, plusieurs figures ont été produites. Étant donné qu'un des objectifs de la tâche était de m'améliorer dans la production de figures, j'ai décidé de produire plusieurs types de visualisations complémentaires plutôt que de me limiter à celles du projet original.
 
 **Figures produites :**
-*Matrice de confusion :* Deux versions ont été produites. La première est la version de base. La deuxième est une version améliorée où chaque case de la diagonale est encadrée en rouge pour faciliter la lecture des bonnes prédictions.
+*Matrice de confusion :* Deux versions ont été produites. La première est la version de base. La deuxième est une version améliorée où chaque case de la diagonale est encadrée en rouge pour faciliter la lecture des bonnes prédictions.   
 
 - Matrice de confusion avec diagonale mise en évidence
-<img src="https://github.com/user-attachments/assets/2adacfaf-3ab4-40a1-8ce0-73c0e299c966" width="300px;" alt=""/>
+<img src="https://github.com/user-attachments/assets/2adacfaf-3ab4-40a1-8ce0-73c0e299c966" width="300px;" alt=""/>  
 
-*Diagramme en barres de l'accuracy par genre :* Montre la précision du modèle pour chacun des 10 genres, avec une ligne rouge pointillée au niveau du chance level (10%). Permet de voir rapidement quels genres sont mieux classés que d'autres.
+*Diagramme en barres de l'accuracy par genre :* Montre la précision du modèle pour chacun des 10 genres, avec une ligne rouge pointillée au niveau du chance level (10%). Permet de voir rapidement quels genres sont mieux classés que d'autres.  
 
 - Diagramme en barres de l'accuracy par genre avec la ligne de baseline
-<img width="500" alt="" src="https://github.com/user-attachments/assets/9fbddc14-a1f7-4cf1-b53b-74c1a0be8d70" />
+<img width="500" alt="" src="https://github.com/user-attachments/assets/9fbddc14-a1f7-4cf1-b53b-74c1a0be8d70" />  
 
 
-*t-SNE et UMAP :* Deux techniques de réduction de dimension ont été utilisées et comparées côte à côte pour visualiser si les genres forment des groupes distincts dans l'espace des features. Le t-SNE préserve bien la structure locale (les voisins proches restent proches), tandis que l'UMAP préserve aussi une partie de la structure globale et est généralement plus stable et rapide. L'UMAP est appliqué directement sur les 50 composantes PCA déjà extraites par le pipeline, ce qui accélère considérablement le calcul.
+*t-SNE et UMAP :* Deux techniques de réduction de dimension ont été utilisées et comparées côte à côte pour visualiser si les genres forment des groupes distincts dans l'espace des features. Le t-SNE préserve bien la structure locale (les voisins proches restent proches), tandis que l'UMAP préserve aussi une partie de la structure globale et est généralement plus stable et rapide. L'UMAP est appliqué directement sur les 50 composantes PCA déjà extraites par le pipeline, ce qui accélère considérablement le calcul.  
 
 - t-SNE avec centroïdes annotés
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/51ae2e37-49d8-4003-9252-28b06e697ba0" />
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/51ae2e37-49d8-4003-9252-28b06e697ba0" />  
 
 - Comparaison côte à côte t-SNE vs UMAP
-<img width="1000" alt="image" src="https://github.com/user-attachments/assets/99c5cf89-2963-4dae-947a-46d4c2e707e7" />
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/99c5cf89-2963-4dae-947a-46d4c2e707e7" />   
 
-*Scree plot de la PCA :* Montre la variance cumulée expliquée en fonction du nombre de composantes, avec une ligne rouge à 50 composantes pour montrer où se situe le modèle entrainé
+*Scree plot de la PCA :* Montre la variance cumulée expliquée en fonction du nombre de composantes, avec une ligne rouge à 50 composantes pour montrer où se situe le modèle entrainé  
 
 - Scree plot de la PCA
 <img width="600" alt="image" src="https://github.com/user-attachments/assets/384c1059-4a98-45a6-8eb2-234aada99e0a" />

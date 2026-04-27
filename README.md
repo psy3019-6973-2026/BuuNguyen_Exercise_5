@@ -161,6 +161,12 @@ Au niveau des visualisations, plusieurs figures ont été produites. Étant donn
 
 À titre de référence, le classificateur du projet original obtenait une performance d'environ 13% sur le même sujet. En revanche, les analyses étaient fait sur des matrices de connectivité. Dans le cadre de ce projet, le modèle SVM dans ce projet a été entraîné directement sur l'activité cérébrale brute moyennée dans le temps (voxel par voxel).  le modèle a atteint une précision de 23.5% sur les données de test.
 
+**Ce que j'ai appris (les grandes lignes) :**  
+- Gestion de mémoire RAM en python
+- Construire un Pipeline en classification
+- Téléchargement de données
+- Se familiariser avec différents types de visualisation
+
 ---
 
 ### Tâche 2 : Reproduction et amélioration du notebook `brainbeats_analysis_pca_confmat.ipynb`
@@ -187,6 +193,11 @@ Finalement, j'ai créé une **fonction de classification binaire personnalisée*
 
 
 À titre de comparaison, le projet original obtenait **68%** de précision avec un SVM binaire Pop vs Metal. 
+
+**Ce que j'ai appris (les grandes lignes) :**  
+- Approfondissement des apprentissages sur la construction de pipeline en classification
+- Se familiariser avec différents types de classificateur et avec Gridsearch
+- Approfondissement des apprentisages en téléchargement de données
 
 ---
 ### 3. Tâche 3 : Notebook pédagogique sur la classification automatique
@@ -216,6 +227,12 @@ Ce jeu de donné à été utilisé, car sa forme non-linéaire en deux croissant
 
 - graphique comparatif des accuracies des 3 modèles
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/6aa5ca1f-fc2f-4477-abcf-d1265ce091f9" />
+
+**Ce que j'ai appris (les grandes lignes) :**  
+- Approfondissement des connaissances sur différents types de classificateur 
+- Développement des compétences en vulgarisation scientifique
+- Développement des apprentissages en écriture sur markdown
+- Apprentissage sur différents jeux de données et technique Meshgrid
 
 ---
 

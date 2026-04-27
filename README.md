@@ -76,8 +76,8 @@ Finalement, le fait que les données pré-traitées soient disponibles m'a égal
 
 ```
 BuuNguyen_Exercise_5/
-├── task_1.ipynb                  # Tâche 1 : XXX
-├── task_2.ipynb                  # Tâche 2 : XXX
+├── task_1.ipynb                  # Tâche 1 : Reproduction et amélioration du notebook brainbeats_analysis_pca_confmat.ipynb
+├── task_2.ipynb                  # Tâche 2 : Reproduction et amélioration du notebook `brainbeats_analysis_pca_confmat.ipynb`
 ├── task_3/
 │   ├── 01_theorie.ipynb          # Tâche 3 — Partie 1 : Théorie de la classification automatique
 │   └── 02_classificateurs.ipynb  # Tâche 3 — Partie 2 : Algorithmes KNN, SVM et Random Forest
@@ -161,7 +161,7 @@ Au niveau des visualisations, plusieurs figures ont été produites. Étant donn
 
 ---
 
-### 1. Tâche 2 : Reproduction et amélioration du notebook `brainbeats_analysis_pca_confmat.ipynb`
+### Tâche 2 : Reproduction et amélioration du notebook `brainbeats_analysis_pca_confmat.ipynb`
 
 **Objectif principal :** Créer de zéro un pipeline complet de classification binaire à partir des données pré-traitées de Zenodo. Dans le projet original, seule la dernière cellule du notebook était disponible en ligne.
 

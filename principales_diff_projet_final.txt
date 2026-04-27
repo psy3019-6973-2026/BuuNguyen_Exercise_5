@@ -1,0 +1,157 @@
+Task 1:
+- Recherche préalable (2h):
+	- Compréhension de la structure de donnée
+	- pipeline de clf
+	- Visualisation (surtout t-SNE)
+	- Type de classifier (SVM)
+
+- Code (4h)
+
+Debugging (2-3h)
+
+Timeline:
+
+- Problème #1 = Taille des données: 
+
+Je chargeais directement les données de tous les participants en mémoire, ce qui faisait crasher mon ordinateur en raison d’un manque de RAM.
+
+- Solution = J’ai fait une recherche plus approfondie sur le fonctionnement de la mémoire RAM et la gestion des données volumineuses en Python. J’ai découvert l’argument mmap_mode='r', qui permet de charger les données sans les copier entièrement en mémoire.
+
+Ce que j’ai appris
+La différence entre charger des données en mémoire vs les lire depuis le disque
+L’importance de la gestion de la mémoire dans les projets de machine learning
+Que des erreurs de type “crash” peuvent venir de contraintes matérielles, pas seulement du code
+
+Problème #2 = Nombre de voxels
+
+En chargeant les données de tous les participants, j’ai remarqué que le nombre de voxels variait d’un participant à l’autre.
+
+Cela posait un problème important, car la plupart des modèles de machine learning nécessitent des données avec une dimension fixe (même nombre de features pour chaque observation).
+
+Même si les données étaient déjà prétraitées, cette variabilité empêchait de simplement concaténer les données de tous les participants.
+
+Solution = 
+
+J’ai essayé différentes approches pour rendre les données compatibles :
+
+Comprendre pourquoi le nombre de voxels diffère (masques cérébraux, preprocessing, etc.)
+Trouver une façon de réduire ou résumer les données pour obtenir une représentation de taille fixe. Pour y arriver, J’ai notamment tenté une réduction de dimension avec PCA, en projetant les données de chaque participant dans un espace de dimension commune. Cependant, cette approche a donné une accuracy très faible
+
+J’ai finalement choisi de me concentrer sur une seul participant.
+
+Ce que j’ai appris
+La réduction de dimension peut dégrader fortement les performances si elle n’est pas bien adaptée
+Appliquer une transformation séparément par participant peut poser problème pour la généralisation
+Il est crucial de préserver l’information pertinente pour la tâche de classification
+
+Problème #3 = Nature temporelle des données
+
+Les données utilisées sont des séries temporelles (signaux fMRI au fil du temps).
+
+Cependant, les modèles comme le SVM ne sont pas conçus pour traiter directement ce type de données séquentielles.Ils attendent des données sous forme de vecteurs fixes (features statiques), et non des séries dans le temps.
+
+Solution = Moyennage dans le temps = obtenir une valeur moyenne par voxel.
+
+
+Task 2:
+
+Recherche préalable (2-3h):
+Comprendre la classification binaire vs multiclasse
+GridSearchCV et optimisation d'hyperparamètres
+Compréhension des 3 classificateurs (SVM, Random Forest, KNN)
+StratifiedKFold
+
+Code (2-3h)
+Debugging (2-3h)
+
+Timeline:
+
+Problème #1 = Extraction des labels binaires
+
+Pour passer d'une classification multiclasse (10 genres) à une classification binaire (2 genres), il fallait filtrer les données pour ne garder que les échantillons appartenant aux deux genres choisis et réindexer les labels correctement.
+
+Solution = Utiliser des masques booléens numpy pour filtrer X et y selon les deux genres cibles.
+
+Ce que j'ai appris :
+Comment manipuler des tableaux numpy avec des conditions
+l'importance de bien aligner X et y après un filtrage.
+
+
+Problème #2 = Résultats instables entre les modèles
+
+En comparant mes différents modèles (SVM, KNN, etc.), j’ai remarqué que les performances variaient légèrement à chaque exécution. Parfois un modèle semblait meilleur en validation croisée, mais ce n’était plus le cas quand je relançais le code ou quand je regardais le score sur le test. Ça rendait la comparaison entre modèles difficile et peu fiable.
+
+Solution =
+J’ai compris que cette instabilité venait du caractère aléatoire présent dans plusieurs étapes du pipeline (mélange des données dans la validation croisée, split train/test, etc.). Certains paramètres comme shuffle=True dans le StratifiedKFold introduisent de l’aléatoire.
+
+Pour corriger ça, j’ai fixé des random_state de manière cohérente dans toutes les étapes où c’était possible (splits, validation croisée, modèles), afin de garantir que les mêmes données soient utilisées à chaque exécution.
+
+Ce que j’ai appris:
+J’ai compris l’importance de la reproductibilité en machine learning. Même si les modèles semblent stables, une petite part d’aléatoire peut suffire à changer les résultats.
+
+Fixer random_state permet d’obtenir des résultats constants, comparables et fiables, ce qui est essentiel pour évaluer correctement les performances des modèles.
+
+Problème #3 = Téléchargement des données
+
+Au départ, je téléchargeais manuellement les données sur mon ordinateur et je les chargeais ensuite localement. Cette approche fonctionnait pour moi, mais rendait le code difficile à utiliser pour quelqu'un d'autre — il aurait fallu télécharger les fichiers manuellement et modifier les chemins dans le code.
+
+Pour rendre le notebook plus accessible et reproductible, j'ai voulu automatiser le téléchargement directement depuis la source.
+
+J'ai d'abord essayé DataLad, un outil conçu pour gérer et télécharger des jeux de données neuroscientifiques. Cependant, DataLad ne fonctionnait pas avec les données prétraitées disponibles sur Zenodo — il est principalement conçu pour les données brutes sur OpenNeuro.
+
+Solution =
+J'ai finalement utilisé urllib.request.urlretrieve pour télécharger les fichiers directement depuis Zenodo au moment où le notebook est exécuté. J'ai aussi ajouté une vérification os.path.exists() pour éviter de re-télécharger des fichiers déjà présents.
+
+Ce que j'ai appris :
+Il existe plusieurs outils pour gérer les données en neurosciences (DataLad, OpenNeuro, Zenodo) et ils ne sont pas tous compatibles avec tous les types de données. La reproductibilité du code passe aussi par l'automatisation du téléchargement des données.
+
+
+task 3
+
+Recherche préalable (3h):
+Comprendre les bases des 3 algorithmes (SVM, KNN, Random Forest)
+Comprendre comment structurer un notebook pédagogique progressif
+Recherche sur la syntaxe MyST pour Jupyter Book (boîtes, tableaux, formules LaTeX)
+Comprendre le No Free Lunch Theorem
+
+Code (2h)
+
+Debugging et peaufinage (4-5h)
+
+Timeline
+
+Problème #1: Structure du notebook pédagogique
+
+Mon but avec ce notebook était de le rendre le plus facile d'accès possible. En revanche, il était difficile de trouver le bon équilibre entre trop de théorie et trop de code. Un notebook trop théorique devient ennuyant, mais trop de code sans explication perd le lecteur débutant.
+
+Solution = Utilisation de ma petite soeur de 16 ans comme cobaye de compréhension. Cette expérience fut éprouvante pour elle et pour moi. En revanche, elle s'est avérée très utile. Ses inputs m'ont forcé à repenser plusieurs sections: simplifier le vocabulaire, ajouter plus d'exemples concrets, et mieux introduire les concepts avant de montrer le code.
+
+Ces commentaires finaux : "je comprends à peu près, mais je m'en fous."
+Je considère cela un succès.
+
+Ce que j'ai appris :
+
+Expliquer un concept à un débutant oblige à le comprendre soi-même en profondeur
+La pédagogie est un vrai travail de conception, pas juste de la rédaction
+Un regard extérieur, même non technique, est extrêmement précieux pour améliorer la clarté d'un notebook
+
+Problème #2: Génération des données synthétiques
+
+Pour illustrer les concepts de classification sans utiliser de vraies données, je cherchais une façon de créer des données artificielles simples. Je ne savais pas du tout que ça existait en sklearn. Je pensais qu'il fallait inventer les données manuellement ou trouver un vrai dataset en ligne.
+
+Solution =
+En cherchant comment créer des exemples simples pour mon notebook, j'ai découvert les fonctions make_moons, make_blobs et make_classification de sklearn.datasets. Chacune génère un type de données différent adapté à différents contextes pédagogiques.
+
+Ce que j'ai appris :
+Il existe des solutions souvent beaucoup plus simple et efficace que l'on peut penser au départ
+Qu'il existe des générateurs de données synthétiques directement dans sklearn
+La différence entre make_moons (non-linéaire), make_blobs (groupes distincts) et make_classification (plus réaliste)
+Que le choix du générateur influence directement la clarté du message pédagogique
+
+Problème #3 = Visualisation des frontières de décision
+
+En voulant visualiser comment chaque algorithme classifie les données, je voulais montrer non seulement les points, mais aussi les zones que le modèle associe à chaque classe.
+
+Solution = En cherchant comment visualiser un classificateur, j'ai découvert la technique du meshgrid : on crée une grille dense de points qui couvre tout l'espace, on demande au modèle de prédire la classe pour chacun de ces points, et on colorie chaque zone selon la prédiction. Ça donne l'illusion de voir la frontière de décision.
+
+

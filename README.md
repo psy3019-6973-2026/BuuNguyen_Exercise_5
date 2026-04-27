@@ -116,9 +116,9 @@ En revanche, les notebook task_1.ipynb et task_2.ipynb permettent tout les deux 
 
 ## 4. Description des tâches
 
-Pour voir les tâches telles que présentées à la mi-session, voir [Presentation_initiale.md](Presentation_initiale.md).  
-Pour voir les plus grandes difficultés rencontré pour les 3 tâches, voir XXXX.  
-Pour voir un journal de bord incomplet et brouillon, voir XXXX.   
+Pour voir les tâches telles que présentées à la mi-session, voir [Presentation_initiale.md].  
+Pour voir les plus grandes difficultés rencontrées pour les 3 tâches et leur temps de réalisation, [principales_diff_projet_final.txt].  
+Pour voir un journal de bord incomplet et brouillon, voir [JDB_brouillon_projet_final.txt].   
 
 ### Tâche 1 : Reproduction et amélioration du notebook `brainbeats_analysis_pca_confmat.ipynb`
 

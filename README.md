@@ -94,7 +94,7 @@ Pour reproduire l'ensemble des notebook, il faudra initialiser l'environnement v
 
 ```bash
 conda env create -f environment.yml
-conda activate <nom_de_l_environnement>
+conda activate brainbeats_env
 ```
 
 ### 3.3 Les données

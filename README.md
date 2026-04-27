@@ -55,11 +55,7 @@ Pour chaque extrait, une matrice de corrélation a été obtenue, puis applatie 
 - 2 binary classification (SVM, KNN) pour différencier Pop et Metal
 
 ### 1.4 Résultats 
-![image tableau resultats](images/tableau_resultats_initiaux.jfif)
-
 La précision du classificateur multiclasse était faible (environ 13%), mais meilleur que la chance avec 10 classes possibles (10%). Du côté des classificateur binaires, le modèle SVM a atteint une précision de 68%, tandis que le KNN a tout simplement échoué. 
-
-![image resultats 2](images/confusion_matrix.jfif)
 
 Le genre musical le mieux classé était le le reggae. 
 
@@ -69,6 +65,8 @@ Tout d'abord, j'ai choisi ce projet puisqu'il me permet de combiner deux sujets 
 Ensuite, bien que j'aie déjà de l'expérience en programmation, je suis débutant spécifiquement en traitement de données d’IRM fonctionnelle et en apprentissage automatique appliqué à la neuroimagerie. Ce projet me permet donc de me familiariser avec des concepts essentiels, tels que l'extraction de séries temporelles cérébrales, la construction de matrices de corrélation ROI-to-ROI et l'entraînement de classificateurs, tout en développant mes compétences en analyse computationnelle de données cérébrales. D'ailleurs, mon projet Honor utilise une tâche experimental en IRMf, donc ce projet pourra certainement m'être utile pour compléter ma thèse.
 
 Finalement, le fait que les données pré-traitées soient disponibles m'a également encouragé à sélectionner ce projet. En revanche, le projet initial semble présenter assez d'opportunité d'amélioration et/ou d'apprentissage
+
+---
 
 ## 3. Initialisation du projet
 
@@ -99,11 +97,11 @@ conda env create -f environment.yml
 conda activate <nom_de_l_environnement>
 ```
 
-### Les données
+### 3.3 Les données
 
 Les données sont téléchargées automatiquement depuis Zenodo au début des notebooks de la tâche 1 et 2. Aucun téléchargement manuel n'est nécessaire. Les notebooks de la tâche 3 n'utilisent aucune donnée externe.
 
-### Exécution des notebook
+### 3.4 Exécution des notebook
 
 Les notebooks peuvent être exécutés dans l'ordre suivant :
 
@@ -114,13 +112,15 @@ Les notebooks peuvent être exécutés dans l'ordre suivant :
 
 En revanche, les notebook task_1.ipynb et task_2.ipynb permettent tout les deux de télecharger les données. Ainsi, l'ordre proposé n'est pas obligatoire pour que les notebooks fonctionnent. Ils peuvent être exécutés indépendamment dans n'importe quel ordre.
 
+---
+
 ## 4. Description des tâches
 
 Pour voir les tâches telles que présentées à la mi-session, voir [Presentation_initiale.md](Presentation_initiale.md).  
 Pour voir les plus grandes difficultés rencontré pour les 3 tâches, voir XXXX.  
 Pour voir un journal de bord incomplet et brouillon, voir XXXX.   
 
-### 1. Tâche 1 : Reproduction et amélioration du notebook `brainbeats_analysis_pca_confmat.ipynb`
+### Tâche 1 : Reproduction et amélioration du notebook `brainbeats_analysis_pca_confmat.ipynb`
 
 **Objectif principal :** Reproduire le notebook d'analyse multiclasse du projet original et l'améliorer au niveau de la lisibilité et des figures.
 

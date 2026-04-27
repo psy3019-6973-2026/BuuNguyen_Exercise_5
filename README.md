@@ -163,7 +163,8 @@ Au niveau des visualisations, plusieurs figures ont été produites. Étant donn
 
 **task_1_multiple_subs**
 
-J'ai tout de même essayé d'entrainer un classificateur sur plusieurs subs. POur y arriver, j'
+J'ai tout de même tenté d'étendre l'analyse à plusieurs participants (sub-003, sub-004 et sub-005). Le principal défi était que les données pré-traitées ne sont pas normalisées dans un espace cérébral commun, ce qui signifie que chaque sujet a un nombre différent de voxels. Pour contourner ce problème, j'ai appliqué une PCA indépendamment par sujet afin de projeter chacun dans un espace de dimension commune avant de les concaténer. Cette approche a donné une précision de 17.22%, ce qui reste au-dessus du niveau de chance (10%), mais inférieur au modèle entraîné sur un seul sujet (23.5%). La réduction de dimension précoce et indépendante par sujet perd probablement trop d'information pertinente pour la classification. Le code est disponible dans task_1_multiple_subs.ipynb pour quiconque voudrait explorer cette piste davantage.
+
 
 **Ce que j'ai appris (les grandes lignes) :**  
 - Gestion de mémoire RAM en python
@@ -242,6 +243,9 @@ Ce jeu de donné à été utilisé, car sa forme non-linéaire en deux croissant
 
 ## Conclusion 
 Ce projet m'a permis d'acquérir des compétences de bases assez concrètes en traitement de données IRMf et en apprentissage automatique appliqué à la neuroimagerie. D'abord, la tâche 1 m'a familiarisé avec le pipeline, en commencant par le téléchargement de données jusqu'à la classification et la visualisation des résultats, notamment avec l'ajout de techniques de réduction de dimension comme le t-SNE et l'UMAP. Ensuite, la tâche 2 m'a forcé à construire un pipeline entier de zéro, ce qui a solidifié ma compréhension des choix méthodologiques à chaque étape — notamment l'optimisation des hyperparamètres et la comparaison de modèles. La tâche 3 m'a permis de consolider ces apprentissages en les expliquant à un public débutant, ce qui m'a obligé à bien comprendre les fondements théoriques derrière chaque algorithme. Ces compétences me seront d'ailleurs directement transférable pour mon projet Honor, qui utilise également des données IRMf pour entrainer un classificateur.
+
+Plusieurs pistes pourraient être explorées pour améliorer ce projet. D'abord, la question des participants multiples reste ouverte. Ensuite, l'utilisation de modèles plus complexes comme des réseaux de neurones convolutifs pourrait potentiellement capturer des patterns plus subtils que le SVM linéaire.
+
 
 ## Utilisation de l'IA
 

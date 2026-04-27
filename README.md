@@ -161,6 +161,10 @@ Au niveau des visualisations, plusieurs figures ont été produites. Étant donn
 
 À titre de référence, le classificateur du projet original obtenait une performance d'environ 13% sur le même sujet. En revanche, les analyses étaient fait sur des matrices de connectivité. Dans le cadre de ce projet, le modèle SVM dans ce projet a été entraîné directement sur l'activité cérébrale brute moyennée dans le temps (voxel par voxel).  le modèle a atteint une précision de 23.5% sur les données de test.
 
+**task_1_multiple_subs**
+
+J'ai tout de même essayé d'entrainer un classificateur sur plusieurs subs. POur y arriver, j'
+
 **Ce que j'ai appris (les grandes lignes) :**  
 - Gestion de mémoire RAM en python
 - Construire un Pipeline en classification

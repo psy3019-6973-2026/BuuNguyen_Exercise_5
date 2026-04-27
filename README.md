@@ -159,6 +159,7 @@ Au niveau des visualisations, plusieurs figures ont été produites. Étant donn
 
 À titre de référence, le classificateur du projet original obtenait une performance d'environ 13% sur le même sujet. En revanche, les analyses étaient fait sur des matrices de connectivité. Dans le cadre de ce projet, le modèle SVM dans ce projet a été entraîné directement sur l'activité cérébrale brute moyennée dans le temps (voxel par voxel).  le modèle a atteint une précision de 23.5% sur les données de test.
 
+---
 
 ### 1. Tâche 2 : Reproduction et amélioration du notebook `brainbeats_analysis_pca_confmat.ipynb`
 
@@ -166,7 +167,7 @@ Au niveau des visualisations, plusieurs figures ont été produites. Étant donn
 
 **Ce qui à été réalisé :**  
 
-J'ai développé un pipeline complet en 7 étapes documentées. Le point de départ est le téléchargement et le chargement des données depuis Zenodo, suivi du filtrage pour isoler deux genres : **Pop** (label 8) et **Classical** (label 2). J'ai choisi cette paire plutôt que Pop vs Metal (utilisée dans le projet original) pour explorer une combinaison différente.
+J'ai développé un pipeline complet en 7 étapes, chacune étant documentées. Le point de départ est le téléchargement et le chargement des données depuis Zenodo, suivi du filtrage pour isoler deux genres : **Pop** (label 8) et **Classical** (label 2). J'ai choisi cette paire plutôt que Pop vs Metal (utilisée dans le projet original) puisque selon le modèle entrainé dans la task_1, il s'agissait des deux styles les mieux prédits.
 
 Pour l'optimisation des hyperparamètres, j'ai utilisé un **GridSearchCV** avec une validation croisée stratifiée à 5 folds (StratifiedKFold). La grille testait différentes valeurs de composantes PCA (10, 20, 50) et du paramètre de régularisation C du SVM (0.001, 0.01, 0.1, 1, 10), pour un total de 15 combinaisons. Les résultats sont visualisés sous forme de **heatmap** pour voir l'impact de chaque hyperparamètre sur la précision.
 
@@ -176,11 +177,14 @@ Finalement, j'ai créé une **fonction de classification binaire personnalisée*
 
 **Performance des modèles :**
 
-> 📷 *Insérer ici : heatmap des scores CV en fonction des hyperparamètres PCA et C (cellule 9)*
+- heatmap des scores CV en fonction des hyperparamètres PCA et C pour le SVM
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/e6634844-e801-4510-9c65-d5433053145f" />
 
-> 📷 *Insérer ici : graphique comparatif des scores CV et Test des 3 classificateurs (cellule 14)*
+- graphique comparatif des scores CV et Test des 3 classificateurs (cellule 14)*
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/15952ea1-9966-4f6a-98f4-2486d476ae7c" />
 
-Les scores exacts sont à insérer une fois le notebook exécuté. On s'attend à ce que le classificateur binaire performe nettement mieux que le multiclasse, puisque le problème est simplifié à seulement 2 classes (baseline à 50%). À titre de comparaison, le projet original obtenait **68%** de précision avec un SVM binaire Pop vs Metal. Le graphique comparatif permet de voir si le SVM reste le meilleur choix ou si Random Forest ou KNN font mieux sur la paire Pop vs Classical. Un bon modèle devrait avoir des scores CV et Test proches, sans écart important qui indiquerait de l'overfitting.
+
+À titre de comparaison, le projet original obtenait **68%** de précision avec un SVM binaire Pop vs Metal. 
 
 ---
 

@@ -5,26 +5,31 @@
 <a href="https://github.com/TON_USERNAME">
    <img src="https://avatars.githubusercontent.com/u/180669752?v=4?s=100" width="100px;" alt=""/>
    <br /><sub><b>Remi Buu Nguyen</b></sub>
-</a>
+</a>  
 
-### Lien du projet = https://school-brainhack.github.io/project/chen_project_2025/
 
-### Lien de l'article = https://pubmed.ncbi.nlm.nih.gov/33164348/ 
+**Repo du projet original :** https://github.com/AlexPeng517/BHS2023_Project_SAM_MRI *(voir lien BrainHack)*
+
+**URL BrainHack :** https://school-brainhack.github.io/project/chen_project_2025/
+
+**Article de référence :** https://pubmed.ncbi.nlm.nih.gov/33164348/
+
+---
 
 ## 1. Présentation du projet initial
 titre du projet initial =  Brainbeats: Classifying Music Genre with fMRI Connectivity
 
-### Description du projet
+### 1.1 Description du projet
 Ce projet s'inspire de l'article de Nakai, T., Koide‑Majima, N., & Nishimoto, S. (2021). Brain and Behavior, 11(1), e01936.
 
 Les humains ont tendance à catégoriser les différents stimuli auditifs en classes distinctes, comme les langues ou même les intonations émotionnelles dans la voix (Wildgruber et al., 2004). Du côté de la musique, Le genre musical constitue aussi une étiquette couramment utilisée pour organiser et reconnaître la musique. En revanche, les mécanismes cérébraux qui soutiennent cette catégorisation demeurent encore mal compris.
 
 Ainsi, en s'insipirant du projet de Nakai et al., le projet initial cherchait à savoir s'il est possible de prédire le genre musical écouté en se basant uniquement sur des patterns de connectivité fonctionnelles en IRMf.
 
-### Description des données
+### 1.2 Description des données
 Les données utilisé pour le projet proviennent de la banque de données OpenNeuro ds003720. Cette base de données ouverte contient des données IRMf de 5 participants écoutant des extraits musicaux qui appartiennent à 10 genres différents. Les données ne sont pas prétraités directement dans cette banque de données, mais une version du jeu de données avec des données pré-traité l'est sur Zenodo.
 
-Les genres musicaux:
+Les 10 genres musicaux:
 - blues, classical, country, disco, hiphop, jazz, metal, pop, reggae, rock
 
 Chaque sujet présente:
@@ -38,7 +43,7 @@ La parcellation du cerveau à été effectué avec l'atlas Schaefer 100-ROI cort
 
 Seul le sujet sub-005 à été utilisé dans le projet initial. Les autres sujets contenaient des fichiers corrompus ou non-correspondants, ce qui rompait l'alignement entre les extraits musicaux et les données IRMf.
 
-### Description de la Méthode
+### 1.3 Description de la Méthode
 La tâche des participant impliquait l'écoute de plusieurs extraits musicaux de 10 genres différents tout en ayant leur activité cérébrale mesurée en IRMf. 
 
 L'atlas utilisé à permis de segmenter le cerveau en 98 régions corticales.
@@ -49,12 +54,8 @@ Pour chaque extrait, une matrice de corrélation a été obtenue, puis applatie 
 - 1 Multiclass Random Forest pour les 10 genres
 - 2 binary classification (SVM, KNN) pour différencier Pop et Metal
 
-### Résultats 
-![image tableau resultats](images/tableau_resultats_initiaux.jfif)
-
+### 1.4 Résultats 
 La précision du classificateur multiclasse était faible (environ 13%), mais meilleur que la chance avec 10 classes possibles (10%). Du côté des classificateur binaires, le modèle SVM a atteint une précision de 68%, tandis que le KNN a tout simplement échoué. 
-
-![image resultats 2](images/confusion_matrix.jfif)
 
 Le genre musical le mieux classé était le le reggae. 
 
@@ -65,70 +66,184 @@ Ensuite, bien que j'aie déjà de l'expérience en programmation, je suis début
 
 Finalement, le fait que les données pré-traitées soient disponibles m'a également encouragé à sélectionner ce projet. En revanche, le projet initial semble présenter assez d'opportunité d'amélioration et/ou d'apprentissage
 
-## 3. Description des tâches
+---
 
-Voici les 3 tâches que je compte accomplir.
+## 3. Initialisation du projet
 
-### TÂCHE 1 : Reproduction du notebook brainbeats_analysis_pca_confmat.ipynb (tâche partagée avec Diyaa)
+### 3.1 Structure du dépot
 
-Ma première sera partagée avec Diyaa. Nous voulons reproduire le notebook brainbeats_analysis_pca_confmat.ipynb. 
-Les détails de la division des sous-tâches vont être divisées reste à être confirmé, mais en voici certaines que j'aimerais accomplir:
+```
+BuuNguyen_Exercise_5/
+├── task_1.ipynb                  # Tâche 1 : Reproduction et amélioration du notebook brainbeats_analysis_pca_confmat.ipynb
+├── task_2.ipynb                  # Tâche 2 : Reproduction et amélioration du notebook `brainbeats_analysis_pca_confmat.ipynb`
+├── task_3/
+│   ├── 01_theorie.ipynb          # Tâche 3 — Partie 1 : Théorie de la classification automatique
+│   └── 02_classificateurs.ipynb  # Tâche 3 — Partie 2 : Algorithmes KNN, SVM et Random Forest
+├── images/
+│   ├── tableau_resultats_initiaux.jfif
+│   └── confusion_matrix.jfif
+├── environment.yml
+├── LICENSE
+└── README.md
+```
 
-Au niveau de la lisibilité:
-- ajouter des commentaires explicatifs et réorganiser les notebook pour améliorer la lisibilité
+### 3.2 Reproductibilité
+Pour reproduire l'ensemble des notebook, il faudra initialiser l'environnement virtuel. Le téléchargement de données se fera directement à partir des notebooks.
 
-Au niveau des figures:
-- Améliorer la figure de matrice de confusion pour améliorer la lisibilité et l'interprétation (changer les couleurs, mettre les chiffres importants en gras, rendre les axes plus lisibles)
-- Ajouter un diagramme à bande pour illustrer le niveau de précision pour chaque genre avec une Baseline
+### Initialiser l'environnement virtuel
 
-Sous-tâches supplémentaires : 
-- Ajouter un graphique de type T-SNE pour visualiser comment les différents genres se regroupent
-- Ajouts de graphiques diagnostiques (À DÉTERMINER)
+```bash
+conda env create -f environment.yml
+conda activate brainbeats_env
+```
 
-Pourquoi cette tâche?
-L'intérêt principal de cette tâche est de me permettre de développer mes connaissances sur le pipeline de traitement des données d’IRM et d’apprentissage automatique ainsi que d’améliorer mes compétences en visualisation de données. 
-Cette tâche est également très pertinente, car elle me permettra d'apprendre à collaborer avec une collègue à travers Github.
+### 3.3 Les données
 
-### TÂCHE 2 :  Production et adaptation du notebook brainbeats_binary_classifier.ipynb
-Ma deuxième tâche serait de produire le notebook du classificateur binaire brainbeats_binary_classifier en utilisant les données pré-traités trouvées sur Zenodo.
+Les données sont téléchargées automatiquement depuis Zenodo au début des notebooks de la tâche 1 et 2. Aucun téléchargement manuel n'est nécessaire. Les notebooks de la tâche 3 n'utilisent aucune donnée externe.
 
-Voici les sous-tâches nécessaires:
-- Création et exécution complète d'un notebook original
-- Création d'un environnement virtuel
-- Adaptation du notebook au jeu de données pré-traités
-- Ajout de commentaires explicatifs
+### 3.4 Exécution des notebook
 
-Sous-tâche si j'ai les capacité computationnelles:
-- Entrainer et tester le classificateur binaire sur plus d'un participant
-- Trouver et tester un autre type de classificateur binaire
-- Création d'une visualisation pour comparer les différents classificateurs utilisés
+Les notebooks se trouvent dans le folder "tasks" et peuvent être exécutés dans l'ordre suivant :
 
-Sous-tâches supplémetaires:
-- Créer un script de validation de la structure du jeu de données
+1. `task_1.ipynb` — Pipeline multiclasse et visualisations
+2. `task_2.ipynb` — Classificateur binaire
+3. `task_3/01_theorie.ipynb` — Théorie (aucune donnée externe requise)
+4. `task_3/02_classificateurs.ipynb` — Algorithmes (aucune donnée externe requise)
+
+En revanche, les notebook task_1.ipynb et task_2.ipynb permettent tout les deux de télecharger les données. Ainsi, l'ordre proposé n'est pas obligatoire pour que les notebooks fonctionnent. Ils peuvent être exécutés indépendamment dans n'importe quel ordre.
+
+---
+
+## 4. Description des tâches
+
+Pour voir les tâches telles que présentées à la mi-session, voir [Presentation_initiale.md](Presentation_initiale.md).  
+Pour voir les plus grandes difficultés rencontré pour les 3 tâches, voir XXXX.  
+Pour voir un journal de bord incomplet et brouillon, voir XXXX.   
+
+### Tâche 1 : Reproduction et amélioration du notebook `brainbeats_analysis_pca_confmat.ipynb`
+
+**Objectif principal :** Reproduire le notebook d'analyse multiclasse du projet original et l'améliorer au niveau de la lisibilité et des figures.
+
+**Ce qui a été réalisé :**  
+
+En premier lieu, le notebook original n'était pas structuré de façon claire. Je l'ai réorganisé en 4 sections distinctes avec des commentaires explicatifs à chaque étape : chargement des données, construction des labels, pipeline d'analyse, et visualisation.
+
+Pour le pipeline d'analyse, j'ai implémenté une chaîne complète en trois étapes : standardisation (StandardScaler), réduction de dimensions par PCA à 50 composantes, puis classification par SVM linéaire (LinearSVC). L'ajout de commentaires explicatifs était réalisé dans le but de rendre le pipeline accessible à un lecteur débutant, en expliquant le rôle de chaque étape et les choix méthodologiques qui les justifient.
+
+Au niveau des visualisations, plusieurs figures ont été produites. Étant donné qu'un des objectifs de la tâche était de m'améliorer dans la production de figures, j'ai décidé de produire plusieurs types de visualisations complémentaires plutôt que de me limiter à celles du projet original.
+
+**Figures produites :**
+*Matrice de confusion :* Deux versions ont été produites. La première est la version de base. La deuxième est une version améliorée où chaque case de la diagonale est encadrée en rouge pour faciliter la lecture des bonnes prédictions.   
+
+- Matrice de confusion avec diagonale mise en évidence
+<img src="https://github.com/user-attachments/assets/2adacfaf-3ab4-40a1-8ce0-73c0e299c966" width="300px;" alt=""/>  
+
+*Diagramme en barres de l'accuracy par genre :* Montre la précision du modèle pour chacun des 10 genres, avec une ligne rouge pointillée au niveau du chance level (10%). Permet de voir rapidement quels genres sont mieux classés que d'autres.  
+
+- Diagramme en barres de l'accuracy par genre avec la ligne de baseline
+<img width="500" alt="" src="https://github.com/user-attachments/assets/9fbddc14-a1f7-4cf1-b53b-74c1a0be8d70" />  
 
 
-Pourquoi cette tâche?
-J'ai très peu de connaissances en classification automatique, donc je pense que cette tâche constitue un bon défi. Présentement, seule la dernière cellule du notebook est disponible en ligne. Cela me permettrait donc de développer mon propre pipeline d'analyse. De plus, l'ajout potentiel d'un deuxième participant pourrait certainement améliorer la capacité de classification et donner de meilleurs résultats.
-Finalement, 
+*t-SNE et UMAP :* Deux techniques de réduction de dimension ont été utilisées et comparées côte à côte pour visualiser si les genres forment des groupes distincts dans l'espace des features. Le t-SNE préserve bien la structure locale (les voisins proches restent proches), tandis que l'UMAP préserve aussi une partie de la structure globale et est généralement plus stable et rapide. L'UMAP est appliqué directement sur les 50 composantes PCA déjà extraites par le pipeline, ce qui accélère considérablement le calcul.  
+
+- t-SNE avec centroïdes annotés
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/51ae2e37-49d8-4003-9252-28b06e697ba0" />  
+
+- Comparaison côte à côte t-SNE vs UMAP
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/99c5cf89-2963-4dae-947a-46d4c2e707e7" />   
+
+*Scree plot de la PCA :* Montre la variance cumulée expliquée en fonction du nombre de composantes, avec une ligne rouge à 50 composantes pour montrer où se situe le modèle entrainé  
+
+- Scree plot de la PCA
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/384c1059-4a98-45a6-8eb2-234aada99e0a" />
+
+**Performance du modèle :**
+
+À titre de référence, le classificateur du projet original obtenait une performance d'environ 13% sur le même sujet. En revanche, les analyses étaient fait sur des matrices de connectivité. Dans le cadre de ce projet, le modèle SVM dans ce projet a été entraîné directement sur l'activité cérébrale brute moyennée dans le temps (voxel par voxel).  le modèle a atteint une précision de 23.5% sur les données de test.
+
+**Ce que j'ai appris (les grandes lignes) :**  
+- Gestion de mémoire RAM en python
+- Construire un Pipeline en classification
+- Téléchargement de données
+- Se familiariser avec différents types de visualisation
+
+---
+
+### Tâche 2 : Reproduction et amélioration du notebook `brainbeats_analysis_pca_confmat.ipynb`
+
+**Objectif principal :** Créer de zéro un pipeline complet de classification binaire à partir des données pré-traitées de Zenodo. Dans le projet original, seule la dernière cellule du notebook était disponible en ligne.
+
+**Ce qui à été réalisé :**  
+
+J'ai développé un pipeline complet en 7 étapes, chacune étant documentées. Le point de départ est le téléchargement et le chargement des données depuis Zenodo, suivi du filtrage pour isoler deux genres : **Pop** (label 8) et **Classical** (label 2). J'ai choisi cette paire plutôt que Pop vs Metal (utilisée dans le projet original) puisque selon le modèle entrainé dans la task_1, il s'agissait des deux styles les mieux prédits.
+
+Pour l'optimisation des hyperparamètres, j'ai utilisé un **GridSearchCV** avec une validation croisée stratifiée à 5 folds (StratifiedKFold). La grille testait différentes valeurs de composantes PCA (10, 20, 50) et du paramètre de régularisation C du SVM (0.001, 0.01, 0.1, 1, 10), pour un total de 15 combinaisons. Les résultats sont visualisés sous forme de **heatmap** pour voir l'impact de chaque hyperparamètre sur la précision.
+
+J'ai ensuite comparé **3 classificateurs** avec le même protocole d'optimisation : SVM linéaire (LinearSVC), Random Forest et KNN. Pour chaque modèle, deux scores sont rapportés : le score de validation croisée sur les données d'entraînement et le score sur les données de test. Un écart important entre les deux peut indiquer de l'overfitting.
+
+Finalement, j'ai créé une **fonction de classification binaire personnalisée** (`binary_classifier`) qui permet à n'importe quel utilisateur de choisir sa propre paire de genres parmi les 10 disponibles et d'entraîner un SVM sur celle-ci, avec affichage automatique des scores et d'une matrice de confusion.
+
+**Performance des modèles :**
+
+- heatmap des scores CV en fonction des hyperparamètres PCA et C pour le SVM
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/e6634844-e801-4510-9c65-d5433053145f" />
+
+- graphique comparatif des scores CV et Test des 3 classificateurs (cellule 14)*
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/15952ea1-9966-4f6a-98f4-2486d476ae7c" />
 
 
-### TÂCHE 3 : Créer un notebook pédagogique exhaustif expliquant les concepts de classification automatique
-Ma troisième tâche serait de créer un notebook pédagogique sur le thème de la classification automatique. Le notebook serait destiné à un public débutant, comme moi, dans le but de rendre ce genre de projet plus accessible.
+À titre de comparaison, le projet original obtenait **68%** de précision avec un SVM binaire Pop vs Metal. 
 
-Voici les sous-tâches nécessaires:
-- Recherches exhaustives sur la classification (explication des bases mathématiques de la classification automatique, types de classification, explication du fonctionnement, exemples d'application, explications des métriques d'évaluations des algorithmes de classifications, etc.)
-- Création d'un nouveau notebook structuré de manière progressive ( théorie, exemples simples, application concrète)
-- implémentation d'un classificateur simple
-- Visualisation graphique de concepts clés
+**Ce que j'ai appris (les grandes lignes) :**  
+- Approfondissement des apprentissages sur la construction de pipeline en classification
+- Se familiariser avec différents types de classificateur et avec Gridsearch
+- Approfondissement des apprentisages en téléchargement de données
 
-Sous-tâches supplémentaires:
-- Ajouts d'exerices pratiques pour favoriser l'apprentissage automatique
-- Création d'un jeu de donnée simple pour permettre aux lecteurs de faire leur propre tests.
+---
+### 3. Tâche 3 : Notebook pédagogique sur la classification automatique
 
-Pourquoi cette tâche?
-Cette tâche me permettrait de concrétiser mes apprentissages faits au long du projet. Le fait d'expliquer la matière à un public débutant m'obligerait à bien comprendre les fondements théoriques, les étapes méthodologiques et les choix techniques derrière les algorithmes de classification.
+- `task_3/01_theorie.ipynb` et `task_3/02_classificateurs.ipynb`
 
-De plus, la création de ce notebook constituerait une ressource utile et réutilisable, autant pour moi que pour d'autres étudiants. 
+**Objectif principal :** Créer une ressource pédagogique destinée à un public débutant pour rendre ce type de projet plus accessible, et consolider mes propres apprentissages en expliquant la matière.
+
+**Ce qui à été réalisé :**
+
+J'ai structuré le contenu en deux notebooks progressifs et indépendants.
+
+Le premier **`01_theorie.ipynb`** couvre les éléments fondamentaux:
+- Définition et exemples du quotidien
+- Structure des données (X et y)
+- Les trois types de classification présentés dans un tableau comparatif (binaire, multiclasse, multi-label), les étapes d'un pipeline typique
+- Et le compromis biais-variance (underfitting vs overfitting).
+
+Chaque concept est accompagné de visualisations générées avec `sklearn` et `matplotlib`.
+
+Le deuxième **`02_classificateurs.ipynb`** présente trois algorithmes, soit les **KNN**, **SVM** et **Random Forest** comparés sur le même jeu de données synthétique `make_moons`. Il s'agit des 3 types de classificateurs utilisés pour la task_1 et la task_2.
+
+Ce jeu de donné à été utilisé, car sa forme non-linéaire en deux croissants met bien en évidence les différences entre les frontières de décision. Chaque algorithme est introduit par une analogie intuitive avant d'expliquer son hyperparamètre principal et son comportement. Le notebook se conclut par une comparaison côte à côte des trois frontières de décision et un graphique d'accuracy.
+
+- comparaison côte à côte des 3 frontières de décision sur `make_moons`
+<img width="1200" alt="image" src="https://github.com/user-attachments/assets/53570002-48cd-4dda-9018-81a12ad543bc" />
+
+- graphique comparatif des accuracies des 3 modèles
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/6aa5ca1f-fc2f-4477-abcf-d1265ce091f9" />
+
+**Ce que j'ai appris (les grandes lignes) :**  
+- Approfondissement des connaissances sur différents types de classificateur 
+- Développement des compétences en vulgarisation scientifique
+- Développement des apprentissages en écriture sur markdown
+- Apprentissage sur différents jeux de données et technique Meshgrid
+
+---
+
+## Conclusion 
+Ce projet m'a permis d'acquérir des compétences de bases assez concrètes en traitement de données IRMf et en apprentissage automatique appliqué à la neuroimagerie. D'abord, la tâche 1 m'a familiarisé avec le pipeline, en commencant par le téléchargement de données jusqu'à la classification et la visualisation des résultats, notamment avec l'ajout de techniques de réduction de dimension comme le t-SNE et l'UMAP. Ensuite, la tâche 2 m'a forcé à construire un pipeline entier de zéro, ce qui a solidifié ma compréhension des choix méthodologiques à chaque étape — notamment l'optimisation des hyperparamètres et la comparaison de modèles. La tâche 3 m'a permis de consolider ces apprentissages en les expliquant à un public débutant, ce qui m'a obligé à bien comprendre les fondements théoriques derrière chaque algorithme. Ces compétences me seront d'ailleurs directement transférable pour mon projet Honor, qui utilise également des données IRMf pour entrainer un classificateur.
+
+## Utilisation de l'IA
+
+L'intelligence artificielle a été utilisée dans ce projet, principalement pour l'aide à la compréhension de certains concepts, la correction de portions de code et l'interprétation de messages d'erreurs.
+
+---
 
 ## RÉFÉRENCES
 Nakai, T., Koide‐Majima, N., & Nishimoto, S. (2020). Correspondence of categorical and feature‐based representations of music in the human brain. Brain and Behavior, 11(1), e01936. https://doi.org/10.1002/brb3.1936

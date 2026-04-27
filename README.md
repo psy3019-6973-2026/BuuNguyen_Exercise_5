@@ -189,6 +189,44 @@ Finalement, j'ai créé une **fonction de classification binaire personnalisée*
 À titre de comparaison, le projet original obtenait **68%** de précision avec un SVM binaire Pop vs Metal. 
 
 ---
+### 3. Tâche 3 : Notebook pédagogique sur la classification automatique
+
+- `task_3/01_theorie.ipynb` et `task_3/02_classificateurs.ipynb`
+
+**Objectif principal :** Créer une ressource pédagogique destinée à un public débutant pour rendre ce type de projet plus accessible, et consolider mes propres apprentissages en expliquant la matière.
+
+**Ce qui à été réalisé :**
+
+J'ai structuré le contenu en deux notebooks progressifs et indépendants.
+
+Le premier **`01_theorie.ipynb`** couvre les éléments fondamentaux:
+- Définition et exemples du quotidien
+- Structure des données (X et y)
+- Les trois types de classification présentés dans un tableau comparatif (binaire, multiclasse, multi-label), les étapes d'un pipeline typique
+- Et le compromis biais-variance (underfitting vs overfitting).
+
+Chaque concept est accompagné de visualisations générées avec `sklearn` et `matplotlib`.
+
+Le deuxième **`02_classificateurs.ipynb`** présente trois algorithmes, soit les **KNN**, **SVM** et **Random Forest** comparés sur le même jeu de données synthétique `make_moons`. Il s'agit des 3 types de classificateurs utilisés pour la task_1 et la task_2.
+
+Ce jeu de donné à été utilisé, car sa forme non-linéaire en deux croissants met bien en évidence les différences entre les frontières de décision. Chaque algorithme est introduit par une analogie intuitive avant d'expliquer son hyperparamètre principal et son comportement. Le notebook se conclut par une comparaison côte à côte des trois frontières de décision et un graphique d'accuracy.
+
+- comparaison côte à côte des 3 frontières de décision sur `make_moons`
+<img width="1200" alt="image" src="https://github.com/user-attachments/assets/53570002-48cd-4dda-9018-81a12ad543bc" />
+
+- graphique comparatif des accuracies des 3 modèles
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/6aa5ca1f-fc2f-4477-abcf-d1265ce091f9" />
+
+---
+
+## Conclusion 
+Ce projet m'a permis d'acquérir des compétences de bases assez concrètes en traitement de données IRMf et en apprentissage automatique appliqué à la neuroimagerie. D'abord, la tâche 1 m'a familiarisé avec le pipeline, en commencant par le téléchargement de données jusqu'à la classification et la visualisation des résultats, notamment avec l'ajout de techniques de réduction de dimension comme le t-SNE et l'UMAP. Ensuite, la tâche 2 m'a forcé à construire un pipeline entier de zéro, ce qui a solidifié ma compréhension des choix méthodologiques à chaque étape — notamment l'optimisation des hyperparamètres et la comparaison de modèles. La tâche 3 m'a permis de consolider ces apprentissages en les expliquant à un public débutant, ce qui m'a obligé à bien comprendre les fondements théoriques derrière chaque algorithme. Ces compétences me seront d'ailleurs directement transférable pour mon projet Honor, qui utilise également des données IRMf pour entrainer un classificateur.
+
+## Utilisation de l'IA
+
+L'intelligence artificielle a été utilisée dans ce projet, principalement pour l'aide à la compréhension de certains concepts, la correction de portions de code et l'interprétation de messages d'erreurs.
+
+---
 
 ## RÉFÉRENCES
 Nakai, T., Koide‐Majima, N., & Nishimoto, S. (2020). Correspondence of categorical and feature‐based representations of music in the human brain. Brain and Behavior, 11(1), e01936. https://doi.org/10.1002/brb3.1936
